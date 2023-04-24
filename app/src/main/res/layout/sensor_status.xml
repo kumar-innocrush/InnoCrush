@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/md_grey_100"
+    android:paddingBottom="10dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_sensor_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ic_sensor_wifi_red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/sensor_connection"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_sensor_connection"
+        app:layout_constraintStart_toEndOf="@+id/iv_sensor_connection"
+        app:layout_constraintTop_toTopOf="@+id/iv_sensor_connection" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_sensor_command_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/ic_cmdstatus_red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/command_status"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_sensor_command_status"
+        app:layout_constraintEnd_toStartOf="@+id/iv_sensor_command_status"
+        app:layout_constraintTop_toTopOf="@+id/iv_sensor_command_status" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

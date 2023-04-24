@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">InnoCrushLaser</string>
+    <string name="input_messkopfabstand_bus_band_mm">Measuring head distance to tape [mm*10]</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_taring">Taring</string>
+    <string name="btn_close">Close</string>
+    <string name="connection_status_on">Laser connected</string>
+    <string name="connection_status_off">Laser disconnected</string>
+
+    <!-- settingsactivity:input parameters -->
+    <string name="input_bandbreite">Bandwidth [mm]</string>
+    <string name="input_bandlaufl_nge_pro_impuls_mm_impuls">Tape length per pulse [mm/pulse]</string>
+    <string name="input_maximale_schrittmotorablenkung_rechts_in_steps_halbschritte_hint">Maximum stepper motor deflection right in steps (half steps)</string>
+    <string name="input_maximale_schrittmotorablenkung_links_in_steps_halbschritte">Maximum stepper motor deflection left in steps (half steps)</string>
+    <string name="input_mittenabgleich_anteil_auf_der_linken_seite">Center balance [% share on the left side]</string>
+    <string name="input_montagewinkel_in_laufrichtung_korrekturfaktor_100_1">Mounting angle in running direction correction factor *** 100 = 1 ***</string>
+    <string name="input_schrittmotorgeschwindigkeit_in_schrittzeit_in_ms_10">Stepper motor speed in step time in [ms] * 10</string>
+    <string name="input_steuerbyte_f_r_heizung_bit0">Control byte for heating (Bit0)</string>
+    <string name="input_ignorierte_h_he_in_mm_10">ignored height in [mm*10]</string>
+
+    <!-- mainactivity:output parameters -->
+    <string name="output_parameter1">Measured volume [cm³]</string>
+    <string name="output_parameter2">Number of time steps of the transferred volume</string>
+    <string name="output_parameter3">Average height of the laser at center position [mm]</string>
+    <string name="output_parameter4">Mean height of the US sensor at center position [mm]</string>
+    <string name="output_parameter5">Number of time slots between roller pulses</string>
+    <string name="output_parameter6">Belt Speed [m/s]</string>
+    <string name="output_parameter7">Steps lost</string>
+    <string name="title_output">Output</string>
+    <string name="title_enter_the_ip_address">Enter the IP address</string>
+    <string name="default_ip">10.10.100.254</string>
+    <string name="title_enter_the_port_number">Enter the Port number</string>
+    <string name="default_port">8899</string>
+    <string name="settings">Settings</string>
+    <string name="history">History</string>
+    <string name="languages">Languages</string>
+    <string name="laser_settings">Laser Settings</string>
+    <string name="settings_fieldsvalid">Enter values for all fields!!</string>
+    <string name="settings_saved">Settings saved successfully..</string>
+    <string name="values_cleared">All values cleared!!</string>
+    <string name="ipvalidation">Enter the valid ipaddress and port number to start!!</string>
+    <string name="title_selectlanguage">Select Language:</string>
+    <string name="item_language_english">English</string>
+    <string name="item_language_german">German</string>
+    <string name="lable_cancel">Cancel</string>
+    <string name="info">Info</string>
+    <string name="ok">Ok</string>
+    <string name="selected_language">Language updated to %s, please restart the application</string>
+    <string name="update_settings_alert">Stop laser before updating the settings..</string>
+    <string name="loss_steps">Loss steps</string>
+    <string name="sensor_connection">Sensor connection</string>
+    <string name="command_status">Command status</string>
+
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InnoCrushLaser</string>
+    <string name="input_messkopfabstand_bus_band_mm">Messkopfabstand bus Band [mm*10]</string>
+    <string name="btn_save">Speichern</string>
+    <string name="btn_taring">Tarieren</string>
+    <string name="btn_close">Lesen</string>
+    <string name="connection_status_on">Laser verbunden</string>
+        <string name="connection_status_off">Laser getrennt</string>
+
+    <!-- settingsactivity:input parameters -->
+    <string name="input_bandbreite">Bandbreite [mm]</string>
+    <string name="input_bandlaufl_nge_pro_impuls_mm_impuls">Bandlauflänge pro Impuls [mm/Impuls]</string>
+    <string name="input_maximale_schrittmotorablenkung_rechts_in_steps_halbschritte_hint">Maximale Schrittmotorablenkung rechts in Steps (Halbschritte)hint</string>
+    <string name="input_maximale_schrittmotorablenkung_links_in_steps_halbschritte">Maximale Schrittmotorablenkung links in Steps (Halbschritte)</string>
+    <string name="input_mittenabgleich_anteil_auf_der_linken_seite">Mittenabgleich [%- Anteil auf der linken Seite]</string>
+    <string name="input_montagewinkel_in_laufrichtung_korrekturfaktor_100_1">Montagewinkel in Laufrichtung Korrekturfaktor *** 100 = 1 ***</string>
+    <string name="input_schrittmotorgeschwindigkeit_in_schrittzeit_in_ms_10">Schrittmotorgeschwindigkeit in Schrittzeit in [ms] * 10</string>
+    <string name="input_steuerbyte_f_r_heizung_bit0">Steuerbyte für Heizung (Bit0)</string>
+    <string name="input_ignorierte_h_he_in_mm_10">ignorierte Höhe in [mm*10]</string>
+
+    <!-- mainactivity:output parameters -->
+    <string name="output_parameter1">Gemessenes Volumen [cm³]</string>
+    <string name="output_parameter2">Anzahl der Zeitschritte des übertragenen Volumens</string>
+    <string name="output_parameter3">Mittlere Höhe des Lasers bei Mitterstellung [mm]</string>
+    <string name="output_parameter4">Mittlere Höhe des US- Sensors bei Mittelstellung [mm]</string>
+    <string name="output_parameter5">Anzahl der Zeitschlitze zwischen den Rollenimpulsen</string>
+    <string name="output_parameter6">Bandgeschwindigkeit [m/s]</string>
+    <string name="output_parameter7">Schritte verloren</string>
+    <string name="title_output">Ausgabe</string>
+    <string name="title_enter_the_ip_address">Geben Sie die IP-Adresse ein</string>
+    <string name="default_ip">10.10.100.254</string>
+    <string name="title_enter_the_port_number">Geben Sie die Portnummer ein</string>
+    <string name="default_port">8899</string>
+    <string name="settings">Einstellungen</string>
+    <string name="history">Verlaufsdaten</string>
+    <string name="languages">Sprachen</string>
+    <string name="laser_settings">Lasereinstellungen</string>
+    <string name="settings_fieldsvalid">Geben Sie Werte für alle Felder ein!!</string>
+    <string name="settings_saved">Einstellungen erfolgreich gespeichert..</string>
+    <string name="values_cleared">Alle Werte gelöscht!!</string>
+    <string name="ipvalidation">Geben Sie die gültige IP-Adresse und Portnummer ein, um zu beginnen!!</string>
+    <string name="title_selectlanguage">Sprache auswählen:</string>
+    <string name="item_language_english">Englisch</string>
+    <string name="item_language_german">Deutsch</string>
+    <string name="lable_cancel">Abbrechen</string>
+    <string name="info">Info</string>
+    <string name="ok">Ok</string>
+    <string name="selected_language">Sprache auf %s aktualisiert, bitte starten Sie die Anwendung neu</string>
+    <string name="update_settings_alert">Stoppen Sie den Laser, bevor Sie die Einstellungen aktualisieren.</string>
+    <string name="loss_steps">Loss steps</string>
+    <string name="sensor_connection">Sensor connection</string>
+    <string name="command_status">Command status</string>
+</resources>

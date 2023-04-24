@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtvw_datetime"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fivedp"
+
+            android:background="@color/black"
+            android:text="Date Time"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/txtvw_param1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/fivedp"
+
+            android:background="@color/black"
+            android:text="Measured Volume"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/txtvw_param2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/fivedp"
+
+            android:background="@color/black"
+            android:text="No of time steps"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/txtvw_param3"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/fivedp"
+
+            android:background="@color/black"
+            android:text="Avg height"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/txtvw_param4"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/fivedp"
+
+            android:background="@color/black"
+            android:text="Mean height"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/txtvw_param5"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/fivedp"
+
+            android:background="@color/black"
+            android:text="No of time slots"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/txtvw_param6"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/fivedp"
+            android:background="@color/black"
+            android:text="Belt pulse"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>
