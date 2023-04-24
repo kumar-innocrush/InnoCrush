@@ -229,7 +229,6 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         listOfCommands.addAll(text.trim().split("\r").toTypedArray())
         val sizeOfResult: Int = listOfCommands.size
         /**
-         * TODO
          * read the taring configuration
          */
 
@@ -262,7 +261,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
 
         checkMeasuredBandPulse()
 
-        measuredDistanceLocal.postValue(measuredDistance)
+        measuredDistanceLocal.postValue(SharedStorage.SETTINGS_PARAMETER_MEASUREMENT_HEAD_DISTANCE)
     }
 
     private fun checkMeasuredBandPulse() {
@@ -283,8 +282,9 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
                      * Decrease the measured height by 10 and update the settings
                      * Read taring data
                      */
-                    socketDisconnect()
                     updateTheSettings(measuredDistanceLocal.value?.minus(10) ?: 0)
+                    socketDisconnect()
+
                     //taringFineTuning(measuredDistanceLocal-10)
                     return
                 }else if(measuredVolume > 0) { // When Measured volume > 0
@@ -296,6 +296,8 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
                      */
                     //taringFineTuning(measuredDistanceLocal+1)
                     updateTheSettings(measuredDistanceLocal.value?.plus(1)?:0)
+                    socketDisconnect()
+
                     return
                 }
                 return
