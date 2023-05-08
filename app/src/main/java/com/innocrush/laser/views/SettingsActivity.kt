@@ -303,6 +303,7 @@ class SettingsActivity : AppCompatActivity() {
             /**
              * Stop the laser
              */
+            Thread.sleep(5000)
             onConnect()
             viewModel.socketWrite(Utils.stopCommand)
             updateTaringMutableLive("Taring process finished and updated the settings.")
