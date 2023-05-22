@@ -197,6 +197,10 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
             }
         } catch (e: Exception) {
             showLog("onReadLaser -->", e.message.toString())
+            if(e.message.toString() == "Read timed out") {
+                connectionStatus.postValue(false)
+                commandStatus.postValue(false)
+            }
         }
     }
 
