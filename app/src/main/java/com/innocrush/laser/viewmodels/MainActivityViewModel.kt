@@ -222,6 +222,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         } catch (e: Exception) {
             showLog("onReadLaser -->", e.message.toString())
             commandStatus.postValue(false)
+            taringStatus.postValue("Taring Failed!!! Try again - restart the app and check connection...")
         }
     }
 

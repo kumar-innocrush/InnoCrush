@@ -2,6 +2,7 @@ package com.innocrush.laser.views
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -18,9 +19,7 @@ import com.innocrush.laser.utils.Checksum
 import com.innocrush.laser.utils.Utils
 import com.innocrush.laser.utils.Utils.SHAREPREFFILE
 import com.innocrush.laser.viewmodels.MainActivityViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.net.ConnectException
 import java.nio.charset.StandardCharsets
 import kotlin.math.PI
@@ -178,7 +177,15 @@ class SettingsActivity : AppCompatActivity() {
     private fun callOnTaring() {
         runTaringCommand()
         viewModel.taringStatus.observeForever {
-            binding.taringStatus.text = it
+
+            if (it.contains("Taring Failed")) {
+                binding.taringStatus.text = it
+                binding.taringStatus.setTextColor(ContextCompat.getColor(this, R.color.md_red_900));
+                //TODO stop the thread
+                taringJob.cancel()
+            }else {
+                binding.taringStatus.text = it
+            }
         }
         updateTaringMutableLive("Initiating taring process..")
         updateTaringProcess(binding)
@@ -247,10 +254,11 @@ class SettingsActivity : AppCompatActivity() {
      * Taring process
      */
 
+    var handler = Handler()
+
     private fun updateTaringProcess(dialogBinding: ActivitySettingsBinding) {
 
         var status = 0
-        var handler = Handler()
 
         dialogBinding.apply {
             dialogBinding.progressBar.progress = 0
@@ -279,11 +287,12 @@ class SettingsActivity : AppCompatActivity() {
         viewModel.taringStatus.postValue(status)
     }
 
+    lateinit var taringJob: Job;
     private fun runTaringCommand() {
         /**
          * Step 1 : Set the system status to 2 for taring process
          */
-        CoroutineScope(Dispatchers.IO).launch {
+        taringJob = GlobalScope.launch(Dispatchers.IO) {
             onConnect()
             updateTaringMutableLive("Taring process started wait for 30 seconds..")
             viewModel.socketWrite(Utils.startTaringMode1_Command) // Anlage starten modus 2
