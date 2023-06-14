@@ -2,12 +2,12 @@ package com.innocrush.laser.views
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -31,6 +31,7 @@ class SettingsActivity : AppCompatActivity() {
     private val TAG = "Settings"
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var viewModel: MainActivityViewModel
+    private lateinit var alertDialogBuilder: AlertDialog.Builder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,7 @@ class SettingsActivity : AppCompatActivity() {
 
         sharedPreferences = this.getSharedPreferences(SHAREPREFFILE, Context.MODE_PRIVATE)
         viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
+        alertDialogBuilder = AlertDialog.Builder(this)
 
         oninit()
 
@@ -179,9 +181,10 @@ class SettingsActivity : AppCompatActivity() {
         viewModel.taringStatus.observeForever {
 
             if (it.contains("Taring Failed")) {
-                binding.taringStatus.text = it
-                binding.taringStatus.setTextColor(ContextCompat.getColor(this, R.color.md_red_900));
+                //binding.taringStatus.text = it
+                //binding.taringStatus.setTextColor(ContextCompat.getColor(this, R.color.md_red_900));
                 //TODO stop the thread
+                showErrorDialog(it)
                 taringJob.cancel()
             }else {
                 binding.taringStatus.text = it
@@ -189,6 +192,18 @@ class SettingsActivity : AppCompatActivity() {
         }
         updateTaringMutableLive("Initiating taring process..")
         updateTaringProcess(binding)
+    }
+
+    private fun showErrorDialog(errorMessage: String) {
+        alertDialogBuilder.setTitle("Error Occurred!!")
+        alertDialogBuilder.setMessage(errorMessage)
+        alertDialogBuilder.setCancelable(false)
+        alertDialogBuilder.setPositiveButton(R.string.trylater) { _, _ ->
+            this.finish()
+        }
+        if(!alertDialogBuilder.show().isShowing) {
+            alertDialogBuilder.show()
+        }
     }
 
     private fun invokeSocket(passCommand: ByteArray, sleepTimer: Long) {
@@ -255,7 +270,6 @@ class SettingsActivity : AppCompatActivity() {
      */
 
     var handler = Handler()
-
     private fun updateTaringProcess(dialogBinding: ActivitySettingsBinding) {
 
         var status = 0

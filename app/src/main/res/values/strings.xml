@@ -50,5 +50,6 @@
     <string name="loss_steps">Loss steps</string>
     <string name="sensor_connection">Sensor connection</string>
     <string name="command_status">Command status</string>
+    <string name="trylater">Try later</string>
 
 </resources>
