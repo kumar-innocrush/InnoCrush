@@ -55,7 +55,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
 
     var measuredDistanceLocal = MutableLiveData(0)
 
-    private val socketTimeOut = 12000
+    private val socketTimeOut = 6000
 
     var taringStatus: MutableLiveData<String> = MutableLiveData<String>()
     var commandStatus: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
@@ -64,11 +64,11 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
     fun socketConnect(ipaddress: String, port: Int) {
         socket = Socket()
         val socketAddress: SocketAddress = InetSocketAddress(ipaddress, port)
-        socket.connect(socketAddress, socketTimeOut)
+        socket.connect(socketAddress)
         socket.keepAlive = true
         socketWriter = socket.getOutputStream()
         socketReader = socket.getInputStream()
-        socket.soTimeout = socketTimeOut
+
         showLog("onConnect -->", "Socket Connected... ")
         connectionStatus.postValue(true)
     }
@@ -81,7 +81,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
             socket.close()
             showLog("socketDisconnect -->", "Socket Disconnected... ")
         } catch (e: Exception) {
-            showLog("socketDisconnect -->", e.message.toString())
+            showLog("Exception - socketDisconnect -->", e.message.toString())
             connectionStatus.postValue(false)
         }
     }
@@ -94,7 +94,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
             socketWriter.write(command)
             socketWriter.flush()
         } catch (e: Exception) {
-            showLog("socketWrite -->", e.message.toString())
+            showLog("Exception - socketWrite -->", e.message.toString())
             connectionStatus.postValue(false)
             commandStatus.postValue(false)
             socketWrite(stopCommand)
@@ -119,15 +119,15 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         val sizeOfResult: Int = listOfCommands.size
         if (sizeOfResult >= 3) { //read data with start and stop command
             val fullCommand = listOfCommands[2].toString()
-            showLog(TAG, "FullCommand:\n$fullCommand")
+            showLog(TAG, "FullCommand: read data with start and stop command (1)--> \n$fullCommand")
             decodeReadCommandOnly(fullCommand)
         }else if (sizeOfResult >= 2) { //read data with start and stop command
             val fullCommand = listOfCommands[1].toString()
-            showLog(TAG, "FullCommand:\n$fullCommand")
+            showLog(TAG, "FullCommand: read data with start and stop command (2)--> \n$fullCommand")
             decodeReadCommandOnly(fullCommand)
         } else if (sizeOfResult == 1) { //read data with exact result
             val fullCommand = listOfCommands[0].toString()
-            showLog(TAG, "FullCommand:\n$fullCommand")
+            showLog(TAG, "FullCommand: read data with exact result --> \n$fullCommand")
             decodeReadCommandOnly(fullCommand)
         }
     }
@@ -176,7 +176,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         showLog(TAG, "Band sensor pulse: $p6")
 
             measuredBandPulseLocal = rollenimpulsenCalculate
-
+        socket.close()
     }}
 
 
@@ -196,7 +196,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
                 Log.e(TAG, "============================")
             }
         } catch (e: Exception) {
-            showLog("onReadLaser -->", e.message.toString())
+            showLog("Exception - onReadLaser -->", e.message.toString())
             if(e.message.toString() == "Read timed out") {
                 connectionStatus.postValue(false)
                 commandStatus.postValue(false)

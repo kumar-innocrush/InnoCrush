@@ -230,11 +230,12 @@ class MainActivity : AppCompatActivity() {
         try {
             viewModel.socketWrite(readCommand)
             viewModel.showLog("readCommand -->", "Read Command:" + String(readCommand))
-            sleep(1000) //1000ms == 1sec
+            sleep(2000) //2000ms ==2sec
+            viewModel.onReadLaser()
             binding.sensorStatusbar.ivSensorCommandStatus.background =
                 ContextCompat.getDrawable(this, R.drawable.ic_cmdstatus_green)
         } catch (e: Exception) {
-            viewModel.showLog("onReadLaser -->", e.message.toString())
+            viewModel.showLog("Exception - onReadLaser -->", e.message.toString())
             binding.sensorStatusbar.ivSensorCommandStatus.background =
                 ContextCompat.getDrawable(this, R.drawable.ic_cmdstatus_red)
         }
@@ -301,7 +302,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.showLog(TAG, "repeating read job")
                 delay(timeInterval)
                 readCommand()
-                viewModel.onReadLaser()
+                onConnect()
             }
         }
     }
